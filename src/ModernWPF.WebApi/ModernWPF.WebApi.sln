@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernWPF.WebApi.Desktop", "ModernWPF.WebApi.Desktop\ModernWPF.WebApi.Desktop.csproj", "{4A06024D-EA5C-47E1-89C3-DB48590075EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernWPF.WebApi.Web", "ModernWPF.WebApi.Web\ModernWPF.WebApi.Web.csproj", "{EA247EE9-E993-4E8E-A8DB-4939888C49BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A06024D-EA5C-47E1-89C3-DB48590075EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A06024D-EA5C-47E1-89C3-DB48590075EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A06024D-EA5C-47E1-89C3-DB48590075EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A06024D-EA5C-47E1-89C3-DB48590075EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA247EE9-E993-4E8E-A8DB-4939888C49BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA247EE9-E993-4E8E-A8DB-4939888C49BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA247EE9-E993-4E8E-A8DB-4939888C49BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA247EE9-E993-4E8E-A8DB-4939888C49BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
