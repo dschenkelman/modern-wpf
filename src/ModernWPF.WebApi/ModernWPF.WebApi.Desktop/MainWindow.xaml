@@ -27,8 +27,11 @@
                 <DataTemplate>
                         <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Stretch">
                             <StackPanel>
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding StringFormat=Empresa: {0}, Path=Name}" Grid.Row="0"/>
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding StringFormat=Precio Acción: {0:C}, Path=StockPrice}" Grid.Row="1"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding StringFormat=Empresa: {0}, Path=Name}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding StringFormat=Precio Acción: {0:C}, Path=StockPrice}"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="GreenYellow" Text="&#x25B2;"/>
+                                </StackPanel>
                             </StackPanel>
                     </Border>
                 </DataTemplate>

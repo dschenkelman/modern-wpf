@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts
+{
+    @Scripts.Render(@Url.Content("~/Scripts/jquery.signalR-1.1.3.js"))
+    @Scripts.Render("~/signalr/hubs")
+    @Scripts.Render(@Url.Content("~/Scripts/stocks.js"))    
+}
+
+<input type="text" id="price"/>
+<button id="updatePrice">Actualizar Precio</button>
