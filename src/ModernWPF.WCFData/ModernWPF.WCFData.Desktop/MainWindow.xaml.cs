@@ -26,7 +26,21 @@
 
         private void GetEmployees(object sender, RoutedEventArgs e)
         {
-            this.LoadEmployees();
+            this.GetButton.IsEnabled = false;
+            this.employees.Clear();
+
+            IQueryable<Employee> employeeQuery = from emp in this.context.Employees
+                                                 where emp.IsActive
+                                                 select emp;
+
+            DataServiceCollection<Employee> employeeList = new DataServiceCollection<Employee>(employeeQuery);
+
+            foreach (Employee employee in employeeList)
+            {
+                this.employees.Add(employee);
+            }
+
+            this.GetButton.IsEnabled = true;
         }
 
         private void AddEmployee(object sender, RoutedEventArgs e)
@@ -65,25 +79,6 @@
             this.context.SaveChanges();
 
             this.AddButton.IsEnabled = true;
-        }
-
-        private void LoadEmployees()
-        {
-            this.GetButton.IsEnabled = false;
-            this.employees.Clear();
-
-            IQueryable<Employee> employeeQuery = from emp in this.context.Employees
-                                                 where emp.IsActive
-                                                 select emp;
-
-            DataServiceCollection<Employee> employeeList = new DataServiceCollection<Employee>(employeeQuery);
-
-            foreach (Employee employee in employeeList)
-            {
-                this.employees.Add(employee);
-            }
-
-            this.GetButton.IsEnabled = true;
         }
     }
 }
