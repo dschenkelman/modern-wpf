@@ -11,8 +11,6 @@
     using System.Windows;
     using System.Windows.Controls.DataVisualization.Charting;
 
-    using ModenWPF.EntityFramework.Annotations;
-
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private Company selectedCompany;
@@ -81,7 +79,6 @@
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChangedEventHandler handler = this.PropertyChanged;
