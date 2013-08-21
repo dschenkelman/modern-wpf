@@ -92,7 +92,7 @@
         {
             this.LoadButton.IsEnabled = false;
 
-            await Task.Run((Func<Task>)this.InitialLoad);
+            await this.InitialLoad();
         }
 
         private async Task InitialLoad()
@@ -101,27 +101,20 @@
 
             using (var context = new MarketContext())
             {
-                var companiesContext = context.Companies;
-                
-                // takes longer due to first access
-                items = await companiesContext.ToListAsync();
+                items = await context.Companies.ToListAsync();
             }
 
-            await this.Dispatcher.InvokeAsync(
-            () =>
-                {
-                    this.Companies.Clear();
+            this.Companies.Clear();
 
-                    foreach (var company in items)
-                    {
-                        this.Companies.Add(company);
-                    }
+            foreach (var company in items)
+            {
+                this.Companies.Add(company);
+            }
 
-                    if (this.Companies.Count != 0)
-                    {
-                        this.SelectedCompany = this.Companies[0];
-                    }
-                });
+            if (this.Companies.Count != 0)
+            {
+                this.SelectedCompany = this.Companies[0];
+            }
         }
     }
 }

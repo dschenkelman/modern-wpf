@@ -50,7 +50,7 @@
 
             double price;
 
-            if (double.TryParse(this.PriceTextBox.Text, out price))
+            if (!double.TryParse(this.PriceTextBox.Text, out price))
             {
                 MessageBox.Show("El precio no es valido.");
                 return;
