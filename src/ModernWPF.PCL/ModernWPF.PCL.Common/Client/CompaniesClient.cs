@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
     using System.Threading.Tasks;
     using ModernWPF.PCL.Common.Model;
     using Newtonsoft.Json;
@@ -22,6 +24,9 @@
         {
             using (var client = new HttpClient { BaseAddress = this.serviceBaseUri })
             {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
                 var response = await client.GetAsync(CompaniesUrl);
                 var companiesJsonResponse = await response.Content.ReadAsStringAsync();
 
@@ -33,7 +38,9 @@
         {
             using (var client = new HttpClient { BaseAddress = this.serviceBaseUri })
             {
-                var response = await client.PostAsync(CompaniesUrl, new StringContent(JsonConvert.SerializeObject(company)));
+                var response = await client.PostAsync(
+                    CompaniesUrl,
+                    new StringContent(JsonConvert.SerializeObject(company), Encoding.UTF8, "application/json"));
 
                 return response.IsSuccessStatusCode;
             }
