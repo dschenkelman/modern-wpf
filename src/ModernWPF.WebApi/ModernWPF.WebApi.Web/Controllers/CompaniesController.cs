@@ -18,11 +18,13 @@
 
         private static int lastId = 3;
 
+        // GET api/companies
         public IEnumerable<Company> Get()
         {
             return companies;
         }
 
+        // GET api/companies/{id}
         public Company Get(int id)
         {
             var company = companies.FirstOrDefault(p => p.Id == id);
@@ -35,6 +37,8 @@
             return company;
         }
 
+        // POST api/companies
+        // { "Name":"new company name", "StockPrice":20 }
         public int Post(Company company)
         {
             company.Id = ++lastId;
